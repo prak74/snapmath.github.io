@@ -9,9 +9,6 @@ from .position_embedding import add_positional_features
 
 INIT = 1e-2
 
-print("FO")
-
-
 class Im2LatexModel(nn.Module):
     def __init__(self, out_size, emb_size, dec_rnn_h,
                  enc_out_dim=512,  n_layer=1,

@@ -4,6 +4,7 @@ from django.shortcuts import render #
 from django.core.files.base import ContentFile
 from django.core.files.storage import FileSystemStorage #
 
+import pickle as pkl
 from prepro import *
 from PIL import Image
 import torch
@@ -25,13 +26,9 @@ from models.decoding import LatexProducer
 from models.score import score_files
 
 
-img_height, img_widht = 224, 224
-
-import pickle as pkl
 
 
 from argparse import Namespace
-
 args = Namespace(
     model_path = "ckpts/best_ckpt.pt",
 
@@ -84,22 +81,16 @@ class Vocab(object):
     def __len__(self):
         return self.length
 
-print("loading vocab...")
 with open('models/vocab.pkl', 'rb') as f:
 	vocab = pkl.load(f)
-print(vocab)
-print("Vocab loaded!")
-
-from test import vcb
-
-print("loading model...")
 mdl = Im2LatexModel(
         len(vocab), args.emb_dim, args.dec_rnn_h,
         add_pos_feat=args.add_position_features,
         dropout=
         args.dropout
     )
-print("Model loaded")
+
+
 
 def index(request):
 	context = {'a':1}
@@ -137,11 +128,9 @@ def predictImage(request):
     context={'filePathName':filePathName,'result':result}
     return render(request,'index.html',context) 
 
-
-
-
-def handle_uploaded_file(f):
-    name = str(datetime.datetime.now().strftime('%H%M%S')) + str(random.randint(0, 1000)) + str(f)
-    path = default_storage.save(MEDIA_ROOT + '/' + name,
-                                ContentFile(f.read()))
-    return os.path.join(MEDIA_ROOT, path), name
+def viewDatabase(request):
+    import os
+    listOfImages=os.listdir('./media/')
+    listOfImagesPath=['./media/'+i for i in listOfImages]
+    context={'listOfImagesPath':listOfImagesPath}
+    return render(request,'viewDB.html',context) 

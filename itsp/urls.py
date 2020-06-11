@@ -16,14 +16,15 @@ Including another URLconf
 from django.contrib import admin
 from django.conf.urls import url
 from django.urls import path
-from latex.views import predictImage, index
+from latex.views import predictImage, index, viewDatabase
 from django.conf.urls.static import static
 from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     url('^$', index, name='homepage'),
-    url('predictImage', predictImage, name='predictImage')
+    url('predict', predictImage, name='predictImage'),
+    url('images', viewDatabase, name='database'),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
