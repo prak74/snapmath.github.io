@@ -50,7 +50,7 @@ args = Namespace(
     #training args
     max_len = 150,
     dropout = 0,
-    cuda = True,
+    cuda = False,
     batch_size = 8,
     epoches = 1,
     lr = 3e-4,
@@ -64,7 +64,7 @@ args = Namespace(
     print_freq = 100,
     seed = 2020,
     from_check_point = False, 
-    use_cuda = True,
+    use_cuda = False,
 )
 
 class Vocab(object):
@@ -84,33 +84,29 @@ class Vocab(object):
     def __len__(self):
         return self.length
 
+print("loading vocab...")
 with open('models/vocab.pkl', 'rb') as f:
 	vocab = pkl.load(f)
 print(vocab)
+print("Vocab loaded!")
 
 from test import vcb
 
-# vocab = load_vocab('./models/')
+print("loading model...")
 mdl = Im2LatexModel(
         len(vocab), args.emb_dim, args.dec_rnn_h,
         add_pos_feat=args.add_position_features,
         dropout=
         args.dropout
     )
-
-# with mdl.as_default():
-#     pt_session = Session()
-#     with pt_session.as_default():
-#         model=torch.load('./models/best_ckpt.pt')
-
-# Create your views here.
+print("Model loaded")
 
 def index(request):
 	context = {'a':1}
 	return render(request, 'index.html', context)
 
 latex_producer = LatexProducer(
-    model, vocab, max_len=args.max_len,
+    mdl, vocab, max_len=args.max_len,
     use_cuda=args.use_cuda, beam_size=args.beam_size)
 
 def predictImage(request):
@@ -124,22 +120,17 @@ def predictImage(request):
     testimage='.'+filePathName
 
     img = Image.open(testimage)
-    # result = 5
-    result = latex_producer(img)
-    # x = image.img_to_array(img)
-    # x=x/255
-    # x=x.reshape(1,img_height, img_width,3)
-    
-    # with mdl.as_default():
-    #     with pt_session.as_default():
-    #         predi=model.predict(x)
 
-    # for imgs, tgt4training, tgt4cal_loss in tqdm(data_loader):
-    #     try:
-    #         reference = latex_producer._idx2formulas(tgt4cal_loss)
-    #         results = latex_producer(imgs)
-    #     except RuntimeError:
-    #         break
+    transform = transforms.ToTensor()
+    img_tensor = transform(img)
+
+    print(img_tensor.shape)
+    img_tensor = img_tensor.unsqueeze(0)
+    print(img_tensor.shape)
+
+    # img_tensor = img_tensor.permute(0, 3, 1, 2) 
+    result = latex_producer(img_tensor)
+    # result = 5
 
     print(result)
 
@@ -148,42 +139,9 @@ def predictImage(request):
 
 
 
-# def predictImage(request):
-# 	fileObj = request.FILES['filePath']
-# 	fs = FileSystemStorage()
-# 	filePathName = fs.save(fileObj.name, fileObj)
-# 	filePathName = fs.url(filePathName)
-
-
-# 	# model.eval()
-
-# 	context = {'filePathName':filePathName}
-# 	return render(request, 'index.html', context)
 
 def handle_uploaded_file(f):
     name = str(datetime.datetime.now().strftime('%H%M%S')) + str(random.randint(0, 1000)) + str(f)
     path = default_storage.save(MEDIA_ROOT + '/' + name,
                                 ContentFile(f.read()))
     return os.path.join(MEDIA_ROOT, path), name
-
-# def predictImage(request):
-#     if request.POST:
-#         # imgtovec = Img2Vec()
-#         file_path, file_name = handle_uploaded_file(request.FILES['filePath'])
-#         # file2_path, file2_name = handle_uploaded_file(request.FILES['file2'])
-#         # pic_one_vector = imgtovec.get_vec(Image.open(file1_path))
-#         # pic_two_vector = imgtovec.get_vec(Image.open(file2_path))
-#         # Using PyTorch Cosine Similarity
-#         # cos = nn.CosineSimilarity(dim=1, eps=1e-6)
-#         # cos_sim = cos(torch.tensor(pic_one_vector).unsqueeze(0), torch.tensor(pic_two_vector).unsqueeze(0))
-
-#         # print('\nCosine similarity: {0:.2f}\n'.format(float(cos_sim)))
-#         context = {
-#         	'filePathName':filePathName,
-#         	'formula':predictedFormula,
-#         	'post':True,
-#         }
-#         return render(request, "index.html", context)
-    
-#     else:    
-#     	return render(request, "index.html", {'post': False})

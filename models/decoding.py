@@ -38,7 +38,7 @@ class LatexProducer(object):
 
     def _greedy_decoding(self, imgs):
         imgs = imgs
-        self.model.eval()
+        # self.model.eval()
 
         enc_outs = self.model.encode(imgs)
         dec_states, O_t = self.model.init_decoder(enc_outs)
@@ -62,7 +62,7 @@ class LatexProducer(object):
 
     def _simple_beam_search_decoding(self, imgs):
         """simpple beam search decoding (not support batch)"""
-        self.model.eval()
+        # self.model.eval()
         beam_results = [
             self._bs_decoding(img.unsqueeze(0))
             for img in imgs
@@ -92,7 +92,7 @@ class LatexProducer(object):
         return:
             formulas in str format
         """
-        self.model.eval()
+        # self.model.eval()
         img = img
 
         # encoding
@@ -168,7 +168,7 @@ class LatexProducer(object):
         return result
 
     def _batch_beam_search(self, imgs):
-        self.model.eval()
+        # self.model.eval()
         imgs = imgs
         enc_outs = self.model.encode(imgs)  # [batch_size, H*W, OUT_C]
         # enc_outs = enc_outs.expand(self.beam_size, -1, -1)
