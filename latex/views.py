@@ -5,7 +5,7 @@ from django.core.files.base import ContentFile
 from django.core.files.storage import FileSystemStorage #
 
 import pickle as pkl
-from prepro import *
+# from prepro import *
 from PIL import Image
 import torch
 import torch.nn as nn
@@ -24,8 +24,6 @@ from models.utils import collate_fn
 from models.model import Im2LatexModel
 from models.decoding import LatexProducer
 from models.score import score_files
-
-
 
 
 from argparse import Namespace
