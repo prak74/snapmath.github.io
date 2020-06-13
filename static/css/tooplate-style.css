@@ -13,7 +13,109 @@ http://www.tooplate.com/view/2098-health
     font-family: 'Poppins', sans-serif;
     overflow-x: hidden;
   }
+  /*---------------------------------------
+     Added by Sahasra              
+  -----------------------------------------*/
+  * {
+    box-sizing: border-box;
+  }
 
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  /* Float four columns side by side */
+  .column {
+    float: left;
+    width: 25%;
+    padding: 0 10px;
+  }
+
+  /* Remove extra left and right margins, due to padding in columns */
+  .row {margin: 0 -5px;}
+
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  /* Style the counter cards */
+  
+  /* Responsive columns - one column layout (vertical) on small screens */
+  
+
+  .card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 210px;
+    margin: auto;
+    text-align: center;
+    border-radius: 12px;
+    column-gap: 10px;
+  }
+
+  
+  .title {
+    color: grey;
+    font-size: 18px;
+  }
+
+  .card img {
+      border-radius: 50%;
+      height: 120px;
+      width: 120px;
+  }
+
+  button {
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 8px;
+    color: white;
+    background-color: #014557;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+    border-radius: 6px;
+  }
+
+  button a {
+    color: white
+  }
+
+  a {
+    text-decoration: none;
+    font-size: 18px;
+    color: black;
+  }
+
+  button:hover, a:hover {
+    opacity: 0.7;
+  }
+
+  div.fileinputs {
+    position: relative;
+  }
+
+  div.fakefile {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 1;
+  }
+
+  input.file {
+    position: relative;
+    text-align: right;
+    -moz-opacity:0 ;
+    filter:alpha(opacity: 0);
+    opacity: 0;
+    z-index: 2;
+  }
+
+  
 
   /*---------------------------------------
      TYPOGRAPHY              
@@ -74,6 +176,7 @@ http://www.tooplate.com/view/2098-health
 
   html{
     -webkit-font-smoothing: antialiased;
+    scroll-behavior: smooth;
   }
 
   a {
@@ -150,6 +253,7 @@ http://www.tooplate.com/view/2098-health
   }
   .news-thumb img {
     border-radius: 10px 10px 0 0;
+
   }
 
   .news-info {
@@ -306,7 +410,9 @@ http://www.tooplate.com/view/2098-health
   -----------------------------------------*/
 
   .navbar-default {
-    background: #ffffff;
+    /*width: 100%;*/
+    /*background: #4d004d;*/
+    background: linear-gradient(to bottom, #01211c 50%, #060a0a 100%);
     box-shadow: 0 2px 8px rgba(0,0,0,.075);
     border: none;
     margin-bottom: 0;
@@ -351,7 +457,7 @@ http://www.tooplate.com/view/2098-health
   }
 
   .navbar-default .navbar-nav > li a:hover {
-    color: #393939 !important;
+    color: #a8a8a8 !important;
   }
 
   .navbar-default .navbar-nav > li > a:hover,

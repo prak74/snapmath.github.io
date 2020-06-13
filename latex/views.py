@@ -131,4 +131,8 @@ def viewDatabase(request):
     listOfImages=os.listdir('./media/')
     listOfImagesPath=['./media/'+i for i in listOfImages]
     context={'listOfImagesPath':listOfImagesPath}
-    return render(request,'viewDB.html',context) 
+    return render(request,'viewDB.html', context) 
+
+def viewAbout(request):
+    context = {}
+    return render(request, 'about.html', context)

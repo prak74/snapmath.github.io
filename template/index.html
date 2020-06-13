@@ -1,28 +1,41 @@
 {% extends 'headerPage.html' %}
 
 {% block content%}
-{% load static %}
+<!-- {% load static %} -->
 
-<h2>Upload Image for generating LaTeX equation</h2>
+<h3 style="font-size: 35px">Upload Image for generating LaTeX equation</h3><br>
 
 <form method="post" enctype="multipart/form-data" action="predictImage">
   
  {% csrf_token %}
- <div class="col-md-4 col-sm-4"><label for="fname">Upload Image File Here:</label> </div> 
- <input name="filePath" type="file">
+ <!-- <div class="col-md-4 col-sm-4"><label for="fname">Upload Image File Here:</label> </div>  -->
+ 
+	<div class="custom-file">
+    <label class="custom-file-label" for="fname">Upload Image File Here</label>
+    <input name="filePath" type="file" class="custom-file-input" id="fname">
+  </div>
+
+
+
+ <!-- <input name="filePath" type="file"> -->
  <br>
  <br>
  <br>
 
  
- <input type="submit" value="Submit" ></div>
+ <input type="submit" value="Submit" onclick="showImage()" ></div>
+ <br>
+
+ &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;<img src={{filePathName}} alt='imagename'>
+ <br>
+ <br>
+<p>
+ &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;<strong>The latex equation for the image is</strong><br><br> 
+ {{predictedLabel}}
+<br>
+ {{result}}
 	
-
- <img src={{filePathName}} alt='imagename'>
- <!-- {{filePathName}} -->
-
- <p><strong>The latex equation for the image is</strong><br><br> {{predictedLabel}} {{result}}</p>
-
+</p>
 
 </form>
 <br>
