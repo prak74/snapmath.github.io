@@ -2,7 +2,7 @@ import numpy as np
 import nltk
 import distance
 
-from .utils import load_formulas
+from models.utils import load_formulas
 
 
 def score_files(path_ref, path_hyp):

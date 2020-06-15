@@ -1,8 +1,7 @@
 import torch
 
-from .beam_search import BeamSearch
-
-END_TOKEN, PAD_TOKEN, START_TOKEN = 2, 1, 0
+from models.build_vocab import END_TOKEN, PAD_TOKEN, START_TOKEN
+from models.model.beam_search import BeamSearch
 
 
 class LatexProducer(object):
@@ -16,7 +15,7 @@ class LatexProducer(object):
             the path to model checkpoint
         """
         self.device = torch.device("cuda" if use_cuda else "cpu")
-        self.model = model
+        self.model = model.to(self.device)
         self._sign2id = vocab.sign2id
         self._id2sign = vocab.id2sign
         self.max_len = max_len
@@ -37,8 +36,8 @@ class LatexProducer(object):
         return results
 
     def _greedy_decoding(self, imgs):
-        imgs = imgs
-        # self.model.eval()
+        imgs = imgs.to(self.device)
+        self.model.eval()
 
         enc_outs = self.model.encode(imgs)
         dec_states, O_t = self.model.init_decoder(enc_outs)
@@ -62,7 +61,7 @@ class LatexProducer(object):
 
     def _simple_beam_search_decoding(self, imgs):
         """simpple beam search decoding (not support batch)"""
-        # self.model.eval()
+        self.model.eval()
         beam_results = [
             self._bs_decoding(img.unsqueeze(0))
             for img in imgs
@@ -92,8 +91,8 @@ class LatexProducer(object):
         return:
             formulas in str format
         """
-        # self.model.eval()
-        img = img
+        self.model.eval()
+        img = img.to(self.device)
 
         # encoding
         # img = img.unsqueeze(0)  # [1, C, H, W]
@@ -109,7 +108,7 @@ class LatexProducer(object):
         topk_ids = torch.ones(
             self.beam_size, device=self.device).long() * START_TOKEN
         topk_log_probs = torch.Tensor([0.0] + [-1e10] * (self.beam_size - 1))
-        topk_log_probs = topk_log_probs
+        topk_log_probs = topk_log_probs.to(self.device)
         seqs = torch.ones(
             self.beam_size, 1, device=self.device).long() * START_TOKEN
         # store complete sequences and corrosponing scores
@@ -168,8 +167,8 @@ class LatexProducer(object):
         return result
 
     def _batch_beam_search(self, imgs):
-        # self.model.eval()
-        imgs = imgs
+        self.model.eval()
+        imgs = imgs.to(self.device)
         enc_outs = self.model.encode(imgs)  # [batch_size, H*W, OUT_C]
         # enc_outs = enc_outs.expand(self.beam_size, -1, -1)
         dec_states, O_t = self.model.init_decoder(enc_outs)

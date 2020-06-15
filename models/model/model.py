@@ -1,4 +1,3 @@
-
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
@@ -8,6 +7,7 @@ from torch.distributions.uniform import Uniform
 from .position_embedding import add_positional_features
 
 INIT = 1e-2
+
 
 class Im2LatexModel(nn.Module):
     def __init__(self, out_size, emb_size, dec_rnn_h,
@@ -152,9 +152,3 @@ class Im2LatexModel(nn.Module):
 
     def _init_o(self, mean_enc_out):
         return torch.tanh(self.init_wo(mean_enc_out))
-
-    # def __eval__(self):
-    #     return eval(self)
-    # def __eval__(self):
-    #     r"""Sets the module in evaluation mode."""
-    #     return self.train(False)

@@ -1,0 +1,113 @@
+.
+├── db.sqlite3
+├── itsp
+│   ├── asgi.py
+│   ├── __init__.py
+│   ├── __pycache__
+│   │   ├── __init__.cpython-38.pyc
+│   │   ├── settings.cpython-38.pyc
+│   │   ├── urls.cpython-38.pyc
+│   │   └── wsgi.cpython-38.pyc
+│   ├── settings.py
+│   ├── urls.py
+│   └── wsgi.py
+├── latex
+│   ├── admin.py
+│   ├── apps.py
+│   ├── __init__.py
+│   ├── migrations
+│   │   ├── __init__.py
+│   │   └── __pycache__
+│   │       └── __init__.cpython-38.pyc
+│   ├── __pycache__
+│   │   ├── admin.cpython-38.pyc
+│   │   ├── build_vocab.cpython-38.pyc
+│   │   ├── __init__.cpython-38.pyc
+│   │   ├── models.cpython-38.pyc
+│   │   └── views.cpython-38.pyc
+│   ├── tests.py
+│   └── views.py
+├── manage.py
+├── media
+│   ├── img0008_8vl5hQU.png
+│   ├── img0008_IWytSoL.png
+│   ├── img0008_kOrGHvK.png
+│   ├── img0008.png
+│   ├── img0008_pVx7x4T.png
+│   ├── img0008_rxzRObS.png
+│   ├── img4-2.png
+│   ├── img7-2.png
+│   └── test.png
+├── models
+│   ├── build_vocab.py
+│   ├── data
+│   │   ├── best_ckpt.pt
+│   │   ├── validate.pkl
+│   │   └── vocab.pkl
+│   ├── data.py
+│   ├── evaluate.py
+│   ├── evaluation.ipynb
+│   ├── model
+│   │   ├── beam_search.py
+│   │   ├── decoding.py
+│   │   ├── model.py
+│   │   ├── position_embedding.py
+│   │   ├── __pycache__
+│   │   │   ├── beam_search.cpython-38.pyc
+│   │   │   ├── decoding.cpython-38.pyc
+│   │   │   ├── __init__.cpython-38.pyc
+│   │   │   ├── model.cpython-38.pyc
+│   │   │   ├── position_embedding.cpython-38.pyc
+│   │   │   ├── score.cpython-38.pyc
+│   │   │   └── training.cpython-38.pyc
+│   │   ├── score.py
+│   │   └── training.py
+│   ├── __pycache__
+│   │   ├── beam_search.cpython-38.pyc
+│   │   ├── build_vocab.cpython-38.pyc
+│   │   ├── data.cpython-38.pyc
+│   │   ├── decoding.cpython-38.pyc
+│   │   ├── __init__.cpython-38.pyc
+│   │   ├── model.cpython-38.pyc
+│   │   ├── position_embedding.cpython-38.pyc
+│   │   ├── score.cpython-38.pyc
+│   │   ├── training.cpython-38.pyc
+│   │   └── utils.cpython-38.pyc
+│   ├── utils.py
+│   └── vocab.pkl
+├── __pycache__
+│   └── test.cpython-38.pyc
+├── README.md
+├── requirements.txt
+├── static
+│   ├── css
+│   │   ├── animate.css
+│   │   ├── bootstrap.min.css
+│   │   ├── font-awesome.min.css
+│   │   ├── owl.carousel.css
+│   │   ├── owl.theme.default.min.css
+│   │   └── tooplate-style.css
+│   ├── img
+│   │   ├── prakhar.jpg
+│   │   ├── sahasra.jpg
+│   │   ├── saketika.jpg
+│   │   └── sakshi.jpg
+│   └── js
+│       ├── bootstrap.min.js
+│       ├── custom.js
+│       ├── jquery.js
+│       ├── jquery.stellar.min.js
+│       ├── jquery.sticky.js
+│       ├── owl.carousel.min.js
+│       ├── smoothscroll.js
+│       └── wow.min.js
+├── template
+│   ├── about.html
+│   ├── headerPage.html
+│   ├── index.html
+│   ├── result.html
+│   └── viewDB.html
+├── test.py
+└── tree.txt
+
+18 directories, 92 files
