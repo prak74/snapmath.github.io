@@ -6,105 +6,322 @@
      <title>SnapMath</title>
 
      <meta charset="UTF-8">
-<!--      <meta http-equiv="X-UA-Compatible" content="IE=Edge"> -->
      <meta name="description" content="">
      <meta name="keywords" content="">
      <meta name="author" content="Tooplate">
      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
      <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" >
-     <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}" >
-     <link rel="stylesheet" href="{% static 'css/animate.css' %}" >
-     <link rel="stylesheet" href="{% static 'css/owl.carousel.css' %}" >
-     <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}" >
-     <link rel="stylesheet" href="{% static 'css/tooplate-style.css' %}">
-     <!-- <link rel="stylesheet" href="{% static 'css/header.sass' %}"> -->
+     <!-- <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}" > -->
+     <!-- <link rel="stylesheet" href="{% static 'css/animate.css' %}" > -->
+     <!-- <link rel="stylesheet" href="{% static 'css/owl.carousel.css' %}" > -->
+     <!-- <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}" > -->
+     <!-- <link rel="stylesheet" href="{% static 'css/tooplate-style.css' %}"> -->
+     <link rel="stylesheet" href="{% static 'css/style.css' %}">
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-     <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"> -->
-     <!-- MAIN CSS -->
+     
+     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Varela+Round" />
+    
+     <style>
+          li {
+          transition: 0.3s;
+          }
+          li.bg:hover {
+          background-color: rgba(255, 255, 255, 0.2);
+          }
+          .no-pad {
+               padding: 0;
+               margin: 0;
+          }
+          html {
+               scroll-behavior: smooth
+          }
+     </style>
+
+     <!-- Template -->
+     <meta name="viewport" content="width=device-width, initial-scale=1" />
+     <link rel="stylesheet" href="{% static 'css/main.css' %}" />
 
 </head>
 <body id="top" data-spy="scroll" data-target=".navbar-collapse" data-offset="50">
-
-     <!-- <div class="container"> -->
-<div>
-     <!-- MENU -->
-     <header>
-          <section class="navbar navbar-default navbar-static-top" role="navigation" style="align-items: center;">
-               <div class="container">
-                    <div class="navbar-header">
-                         <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                              <span class="icon icon-bar"></span>
-                              <span class="icon icon-bar"></span>
-                              <span class="icon icon-bar"></span>
-                              <span class="icon icon-bar"></span>
-                         </button>
-
-                         <!-- lOGO TEXT HERE -->
-                         <ul class="nav navbar-nav">
-                              <li><a style="color: #e6e6e6; font-size: 28px; font-family: Aileron" href="/" class="navbar-brand">SnapMath</a></li>
-                         
-                              <li><a style="color: #e6e6e6; font-size: 16px; font-family: Ubuntu;" href="/" class="smoothScroll">Home</a></li>
-                              <li><a style="color: #e6e6e6; font-size: 16px; font-family: Ubuntu" href="images" class="smoothScroll">View images</a></li>
-                              <li><a style="color: #e6e6e6; font-size: 16px; font-family: Ubuntu" href="about" class="smoothScroll">About us</a></li>
-                         </ul>
-                         <!-- MENU LINKS -->
-                    </div>
-
-                    
-
-               </div>
-          </section>
-     </header>
-</div>
-
-<br><br>
-     <!-- HOME -->
-
-
-<div class="container">
-     {% block content%}
-     {% endblock %}
-    
-</div>
-     
-<!-- FOOTER -->
-<footer data-stellar-background-ratio="5">
-     <div class="container">
-          <div class="row">
-               <div class="col-md-12 col-sm-12 border-top">
-                    <div class="col-md-2 col-sm-2 text-align-center">
-                         <div class="angle-up-btn"> 
-                             <a href="#top" class="smoothScroll wow fadeInUp" data-wow-delay="1.2s"></a>
-                         </div>
-                    </div>   
-               </div> 
+          
+     <header id="header">
+          <div class="inner">
+               <a href="/" class="logo" style="font-size: 25px">SnapMath <small style="font-size: 20px">by Hawkeye</small></a>
+               <nav id="nav">
+                    <a href="/">Home</a>
+                    <a href="#team">Team</a>
+                    <a href="gallery">Gallery</a>
+               </nav>
+               <a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
           </div>
+     </header>
+
+     <!-- Banner -->
+     <section id="banner">
+         <div class="inner">
+              <header>
+                   <h1>Welcome to SnapMath</h1>
+              </header>
+
+              <div class="flex ">
+
+                   <div>
+                        <span class="icon fa-car"></span>
+                        <h3>test</h3>
+                        <p>test</p>
+                   </div>
+
+                   <div>
+                        <span class="icon fa-camera"></span>
+                        <h3>test</h3>
+                        <p>test</p>
+                   </div>
+
+                   <div>
+                        <span class="icon fa-bug"></span>
+                        <h3>test</h3>
+                        <p>test</p>
+                   </div>
+
+              </div>
+
+              <footer>
+                   <a href="#model" class="button">Get Started</a>
+              </footer>
+         </div>
+     </section>
+
+
+     <div id="model" class="container no-pad">
+          {% block content%}
+          {% endblock %}
      </div>
-</footer>
 
-<!-- SCRIPTS -->
-<script  src="{% static 'js/jquery.js' %}"></script>
-<script  src="{% static 'js/bootstrap.min.js' %}"></script>
-<script  src="{% static 'js/jquery.sticky.js' %}"></script>
-<script  src="{% static 'js/jquery.stellar.min.js' %}"></script>
-<script  src="{% static 'js/wow.min.js' %}"></script>
-<script  src="{% static 'js/smoothscroll.js' %}"></script>
-<script  src="{% static 'js/owl.carousel.min.js' %}"></script>
-<script  src="{% static 'js/custom.js' %}"></script>
 
-<script>
-// Add the following code if you want the name of the file appear on select
-$(".custom-file-input").on("change", function() {
-  var fileName = $(this).val().split("\\").pop();
-  $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
-});
-</script>
+     <!-- About -->
+     <section class="page-section bg-light" id="team">
+         <div class="container">
+             <div class="text-center">
+                 <h2 class="section-heading text-uppercase" style="font-size: 30px">Team</h2>
+                 <p class="section-subheading text-muted" style="font-size: 20px">Umm... I don't know</p>
+                 <br><br>
+             </div>
 
-<script>
-function showImage() {
-  document.getElementById("image").innerHTML = "show something";
-}
-</script>
+             <div class="row">
+               <div class="column">
+                      <div class="card" style="margin-left: auto; margin-right: auto;">
+                        <br>
+                        <img src="/static/img/advait.jpg" alt="advait">
+                        <h4 style="font-size: 20px">Advait Kumar (Mentor)</h4>
+                        <p class="title">Second year UG</p>
+                        <p>IIT Bombay</p>
+                        <a href="#"><i class="fa fa-facebook"></i></a>
+                        <a href="#"><i class="fa fa-github"></i></a>
+                        <a href="#"><i class="fa fa-linkedin"></i></a>
+                        <a href="#"><i class="fa fa-instagram"></i></a>
+                        <p><button>Contact</button></p>
+                      </div>
+                 </div>   
+                 <div class="column">
+                      <div class="card">
+                        <br>
+                        <img src="/static/img/saketika.jpg" alt="saketika">
+                        <h4 style="font-size: 20px">Saketika Chekuri</h4>
+                        <p class="title">First year UG</p>
+                        <p>IIT Bombay</p>
+                        <a href="#"><i class="fa fa-facebook"></i></a>
+                        <a href="#"><i class="fa fa-github"></i></a>
+                        <a href="#"><i class="fa fa-linkedin"></i></a>
+                        <a href="#"><i class="fa fa-instagram"></i></a>
+                        <p><button>Contact</button></p>
+                      </div>
+                 </div>
+                 <div class="column">
+                      <div class="card">
+                        <br>
+                        <img src="/static/img/sahasra.jpg" alt="sahasra">
+                        <h4 style="font-size: 20px">Sahasra Ranjan</h4>
+                        <p class="title">First year UG</p>
+                        <p>IIT Bombay</p>
+                        <a href="#"><i class="fa fa-facebook"></i></a>
+                        <a href="#"><i class="fa fa-github"></i></a>
+                        <a href="#"><i class="fa fa-linkedin"></i></a>
+                        <a href="#"><i class="fa fa-instagram"></i></a>
+                        <p><button>Contact</button></p>
+                      </div>
+                 </div>
+                 <div class="column">
+                      <div class="card">
+                        <br>
+                        <img src="/static/img/prakhar.jpg" alt="prakhar">
+                        <h4 style="font-size: 20px">Prakhar Mittal</h4>
+                        <p class="title">First year UG</p>
+                        <p>IIT Bombay</p>
+                        <a href="#"><i class="fa fa-facebook"></i></a>
+                        <a href="#"><i class="fa fa-github"></i></a>
+                        <a href="#"><i class="fa fa-linkedin"></i></a>
+                        <a href="#"><i class="fa fa-instagram"></i></a>
+                        <p><button>Contact</button></p>
+                      </div>
+                 </div>
+                 <div class="column">
+                      <div class="card">
+                        <br>
+                        <img src="/static/img/sakshi.jpg" alt="sakshi">
+                        <h4 style="font-size: 20px">Sakshi Toshniwal</h4>
+                        <p class="title">First year UG</p>
+                        <p>IIT Bombay</p>
+                        <a href="#"><i class="fa fa-facebook"></i></a>
+                        <a href="#"><i class="fa fa-github"></i></a>
+                        <a href="#"><i class="fa fa-linkedin"></i></a>
+                        <a href="#"><i class="fa fa-instagram"></i></a>
+                        <p><button>Contact</button></p>
+                      </div>
+                 </div>                    
+               </div>
+         </div>
+     </section>
+     <!-- Team -->
+     <!-- <section id="three" class="wrapper align-center">
+         <div class="inner">
+              <div class="flex flex-2">
+                   <article>
+                        <div class="image round">
+                             <img src="static/img/pic01.jpg" alt="Pic 01" />
+                        </div>
+                        <header>
+                             <h3>Lorem ipsum<br /> dolor amet nullam</h3>
+                        </header>
+                        <p>Morbi in sem quis dui placerat ornare. Pellentesquenisi<br />euismod in, pharetra a, ultricies in diam sed arcu. Cras<br />consequat  egestas augue vulputate.</p>
+                        <footer>
+                             <a href="#" class="button">Learn More</a>
+                        </footer>
+                   </article>
+                   <article>
+                        <div class="image round">
+                             <img src="static/img/pic02.jpg" alt="Pic 02" />
+                        </div>
+                        <header>
+                             <h3>Sed feugiat<br /> tempus adipicsing</h3>
+                        </header>
+                        <p>Pellentesque fermentum dolor. Aliquam quam lectus<br />facilisis auctor, ultrices ut, elementum vulputate, nunc<br /> blandit ellenste egestagus commodo.</p>
+                        <footer>
+                             <a href="#" class="button">Learn More</a>
+                        </footer>
+                   </article>
+                   <article>
+                        <div class="image round">
+                             <img src="static/img/pic01.jpg" alt="Pic 01" />
+                        </div>
+                        <header>
+                             <h3>Lorem ipsum<br /> dolor amet nullam</h3>
+                        </header>
+                        <p>Morbi in sem quis dui placerat ornare. Pellentesquenisi<br />euismod in, pharetra a, ultricies in diam sed arcu. Cras<br />consequat  egestas augue vulputate.</p>
+                        <footer>
+                             <a href="#" class="button">Learn More</a>
+                        </footer>
+                   </article>
+                   <article>
+                        <div class="image round">
+                             <img src="static/img/pic01.jpg" alt="Pic 01" />
+                        </div>
+                        <header>
+                             <h3>Lorem ipsum<br /> dolor amet nullam</h3>
+                        </header>
+                        <p>Morbi in sem quis dui placerat ornare. Pellentesquenisi<br />euismod in, pharetra a, ultricies in diam sed arcu. Cras<br />consequat  egestas augue vulputate.</p>
+                        <footer>
+                             <a href="#" class="button">Learn More</a>
+                        </footer>
+                   </article>
+              </div>
+         </div>
+     </section> -->
+
+
+     <!-- Footer -->
+     <!-- <footer id="footer">
+          <div class="inner">
+
+               <h3>Get in touch</h3>
+
+               <form action="#" method="post">
+
+                    <div class="field half first">
+                         <label for="name">Name</label>
+                         <input name="name" id="name" type="text" placeholder="Name">
+                    </div>
+                    <div class="field half">
+                         <label for="email">Email</label>
+                         <input name="email" id="email" type="email" placeholder="Email">
+                    </div>
+                    <div class="field">
+                         <label for="message">Message</label>
+                         <textarea name="message" id="message" rows="6" placeholder="Message"></textarea>
+                    </div>
+                    <ul class="actions">
+                         <li><input value="Send Message" class="button alt" type="submit"></li>
+                    </ul>
+               </form>
+
+               <div class="copyright">
+                    &copy; Untitled. Design: <a href="https://templated.co">TEMPLATED</a>. Images: <a href="https://unsplash.com">Unsplash</a>.
+               </div>
+
+          </div>
+     </footer>
+      -->
+
+     <!-- </div> -->
+
+
+
+     <!-- FOOTER -->
+     <!-- <footer data-stellar-background-ratio="5">
+          <div class="container">
+               <div class="row">
+                    <div class="col-md-12 col-sm-12 border-top">
+                         <div class="col-md-2 col-sm-2 text-align-center">
+                              <div class="angle-up-btn"> 
+                                  <a href="#top" class="smoothScroll wow fadeInUp" data-wow-delay="1.2s"></a>
+                              </div>
+                         </div>   
+                    </div> 
+               </div>
+          </div>
+     </footer>
+ -->
+     <!-- SCRIPTS -->
+
+     <script  src="{% static 'js/jquery.js' %}"></script>
+     <script  src="{% static 'js/bootstrap.min.js' %}"></script>
+     <script  src="{% static 'js/jquery.sticky.js' %}"></script>
+     <script  src="{% static 'js/jquery.stellar.min.js' %}"></script>
+     <script  src="{% static 'js/wow.min.js' %}"></script>
+     <script  src="{% static 'js/smoothscroll.js' %}"></script>
+     <script  src="{% static 'js/owl.carousel.min.js' %}"></script>
+     <script  src="{% static 'js/custom.js' %}"></script>
+     <script  src="{% static 'js/upload.js' %}"></script>
+
+     <script>
+          // Add the following code if you want the name of the file appear on select
+          $(".custom-file-input").on("change", function() {
+            var fileName = $(this).val().split("\\").pop();
+            $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+          });
+     </script>
+
+     <script>
+          function showImage() {
+            document.getElementById("image").innerHTML = "show something";
+          }
+     </script>
+
+
+     <!-- Template -->
+     <script  src="{% static 'js/jquery.min.js' %}"></script>
+     <script  src="{% static 'js/main.js' %}"></script>
+     <script  src="{% static 'js/util.js' %}"></script>
+     <script src="{% static 'js/skel.min.js' %}"></script>
 
 </body>
 </html>

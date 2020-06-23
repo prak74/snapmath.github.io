@@ -17,10 +17,10 @@ from django.contrib import admin
 from django.conf.urls import url
 from django.urls import path
 from latex.views import (
-     predictImage, 
+     predict, 
      index, 
      viewDatabase, 
-     viewAbout, 
+     # viewAbout, 
      # viewPdf,
     )
 from django.conf.urls.static import static
@@ -30,9 +30,9 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 urlpatterns = [
     path('admin/', admin.site.urls),
     url('^$', index, name='homepage'),
-    url('predict', predictImage, name='predictImage'),
-    url('images', viewDatabase, name='database'),
-    url('about', viewAbout, name='about'),
+    url('predict', predict, name='predict'),
+    url('gallery', viewDatabase, name='gallery'),
+    # url('team', viewAbout, name='team'),
     # url('pdf', viewPdf, name='pdf'),
 ]
 

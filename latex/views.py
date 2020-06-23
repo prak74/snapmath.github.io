@@ -35,7 +35,7 @@ from models.utils import collate_fn
 from models.model.model import Im2LatexModel
 from models.model.decoding import LatexProducer
 from models.model.score import score_files
-from models.imageInput import preImage
+from models.inputImage import preImage
 
 
 from argparse import Namespace
@@ -107,7 +107,7 @@ latex_producer = LatexProducer(
 
 
 
-def predictImage(request):
+def predict(request):
     # doc = request.FILES #returns a dict-like object
     # fileObj = doc['filename']
 

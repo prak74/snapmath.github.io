@@ -1,20 +1,36 @@
 {% extends 'headerPage.html' %}
 
 {% block content%}
-{% load static %}
 
-<h3 style="font-size: 35px">Upload Image for generating LaTeX equation</h3><br>
 
-<form method="post" enctype="multipart/form-data" action="predictImage">
+<!-- {% load static %} -->
+<br><br>
+<h2>Upload Image for generating LaTeX equation</h2>
+<br>
+<!-- <p class="lead">Upload Image File Here</p> -->
+
+<form method="post" enctype="multipart/form-data" action="predict" id="file-upload-form" class="uploader">
   
- {% csrf_token %}
+{% csrf_token %}
  <!-- <div class="col-md-4 col-sm-4"><label for="fname">Upload Image File Here:</label> </div>  -->
- 
-	<div class="custom-file">
-    <label class="custom-file-label" for="fname">Upload Image File Here</label>
-    <input name="filePath" type="file" class="custom-file-input" id="fname">
-  </div>
 
+<input id="fname" type="file" name="filePath" accept="image/*" />
+
+  <label for="fname" id="file-drag">
+      <img id="file-image" src="#" alt="Preview" class="hidden">
+      <div id="start">
+          <i class="fa fa-download" aria-hidden="true"></i>
+          <div>Select a file or drag here</div>
+          <div id="notimage" class="hidden">Please select an image</div>
+          <span id="file-upload-btn" class="btn btn-primary">Select a file</span>
+      </div>
+      <div id="response" class="hidden">
+          <div id="messages"></div>
+          <progress class="progress" id="file-progress" value="0">
+              <span>0</span>%
+          </progress>
+      </div>
+  </label>
 
 
  <!-- <input name="filePath" type="file"> -->
@@ -26,24 +42,12 @@
  <input type="submit" value="Submit" onclick="showImage()" ></div>
  <br>
 
- <img src={{filePathName}} alt='imagename'>
+ <img src={{filePathName}} alt='imagename' style="height: 50px;">
  <br>
  <br>
 <p>
- <strong>The latex equation for the image is</strong><br><br> 
- {{predictedLabel}}
+ <strong>The latex equation for the image is :</strong></p><br> 
+ <p> {{result}}</p>
 <br>
- {{result}}
-	
-</p>
-
-<!-- <p> -->
-	<!-- <iframe src="/media/pdf/test5.png"	 height="100" width="20%"></iframe> -->
-	<!-- <iframe name='pdf' src="media/pdf/prediction.pdf"	 height="600" width="100%"></iframe> -->
-<!-- </p> -->
-
 </form>
-<br>
-
-
 {% endblock %}
