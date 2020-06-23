@@ -16,7 +16,13 @@ Including another URLconf
 from django.contrib import admin
 from django.conf.urls import url
 from django.urls import path
-from latex.views import predictImage, index, viewDatabase, viewAbout
+from latex.views import (
+     predictImage, 
+     index, 
+     viewDatabase, 
+     viewAbout, 
+     # viewPdf,
+    )
 from django.conf.urls.static import static
 from django.conf import settings
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
@@ -27,6 +33,7 @@ urlpatterns = [
     url('predict', predictImage, name='predictImage'),
     url('images', viewDatabase, name='database'),
     url('about', viewAbout, name='about'),
+    # url('pdf', viewPdf, name='pdf'),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

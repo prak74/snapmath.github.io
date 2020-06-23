@@ -3,9 +3,11 @@
 {% block content%}
 
 {% for i in listOfImagesPath %}
-
+<!-- {% if i is not './media/pdf' %} -->
+<!-- {{i}} -->
 <img src={{i}} style="height: 80px"> <br>
 <br>
+<!-- {% endif %} -->
 {% endfor%}
 
 

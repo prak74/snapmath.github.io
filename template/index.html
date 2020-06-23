@@ -1,7 +1,7 @@
 {% extends 'headerPage.html' %}
 
 {% block content%}
-<!-- {% load static %} -->
+{% load static %}
 
 <h3 style="font-size: 35px">Upload Image for generating LaTeX equation</h3><br>
 
@@ -26,16 +26,21 @@
  <input type="submit" value="Submit" onclick="showImage()" ></div>
  <br>
 
- &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;<img src={{filePathName}} alt='imagename'>
+ <img src={{filePathName}} alt='imagename'>
  <br>
  <br>
 <p>
- &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;<strong>The latex equation for the image is</strong><br><br> 
+ <strong>The latex equation for the image is</strong><br><br> 
  {{predictedLabel}}
 <br>
  {{result}}
 	
 </p>
+
+<!-- <p> -->
+	<!-- <iframe src="/media/pdf/test5.png"	 height="100" width="20%"></iframe> -->
+	<!-- <iframe name='pdf' src="media/pdf/prediction.pdf"	 height="600" width="100%"></iframe> -->
+<!-- </p> -->
 
 </form>
 <br>

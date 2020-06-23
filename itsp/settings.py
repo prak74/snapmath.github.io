@@ -37,8 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django_sass',
     'latex',
+    'django_tex'
 ]
 
 MIDDLEWARE = [
@@ -66,6 +66,13 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
             ],
         },
+    },
+
+    {
+        'NAME': 'tex',
+        'BACKEND': 'django_tex.engine.TeXEngine', 
+        'APP_DIRS': True,
+        'DIRS': [os.path.join(BASE_DIR, 'template')],
     },
 ]
 
@@ -127,3 +134,7 @@ STATICFILES_DIRS = [
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+
+# PDF_URL = '/pdf/'
+# PDF_ROOT = os.path.join(BASE_DIR, 'media/pdf')
