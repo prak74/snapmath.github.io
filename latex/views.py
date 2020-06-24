@@ -1,6 +1,7 @@
 from os.path import join
 import os, datetime, random
 
+# import mimetype
 from functools import partial
 from django.views import View
 from django.shortcuts import render #
@@ -9,6 +10,13 @@ from django.core.files.base import ContentFile
 from django.core.files.storage import FileSystemStorage #
 from django_tex.core import compile_template_to_pdf
 from django_tex.shortcuts import render_to_pdf
+
+
+from django.shortcuts import HttpResponse
+from django.template.loader import get_template, render_to_string
+
+from fpdf import FPDF, HTMLMixin
+
 
 import cv2
 import PIL
@@ -135,12 +143,33 @@ def predict(request):
     contextPdf = {'equation': result}
     PDF = compile_template_to_pdf(template, contextPdf)
 
-    f = open('media/pdf/prediction.pdf', 'w+b')
+    f = open('pdf/prediction.pdf', 'w+b')
     f.write(PDF)
     f.close()
 
     context={'filePathName':filePathName,'result':result}
     return render(request,'index.html',context)
+
+
+def pdf(request):
+    output = open('pdf/prediction.pdf', 'rb').read()
+    return HttpResponse(output, content_type='application/pdf')
+
+
+# class HtmlPdf(FPDF, HTMLMixin):
+#     pass
+
+
+# def print_pdf(request):    
+#     pdf = HtmlPdf()
+#     pdf.add_page()
+#     pdf.write_html(render_to_string('pdf/example.html'))
+#     # pdf = open("pdf/prediction.pdf")
+
+#     response = HttpResponse(pdf.output(dest='S').encode('latin-1'))
+#     response['Content-Type'] = 'application/pdf'
+
+#     return response
 
 
 
@@ -151,6 +180,16 @@ def viewDatabase(request):
     context={'listOfImagesPath':listOfImagesPath}
     return render(request,'viewDB.html', context) 
 
+
+# def pdf(request):
+#     template_name = 'test.tex'
+#     context = {'foo': 'Bar'}
+#     return render_to_pdf(request, template_name, context, filename='test.pdf')
+
+
+# def pdf(request):
+#     output = open("pdf/prediction.pdf", 'r')
+#     return render(output, mimetype='application/pdf')
 
 
 

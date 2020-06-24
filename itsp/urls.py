@@ -19,22 +19,35 @@ from django.urls import path
 from latex.views import (
      predict, 
      index, 
-     viewDatabase, 
+     viewDatabase,
+     pdf, 
      # viewAbout, 
      # viewPdf,
     )
+# from django.http import 
 from django.conf.urls.static import static
 from django.conf import settings
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+# from latex import views as web_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     url('^$', index, name='homepage'),
     url('predict', predict, name='predict'),
     url('gallery', viewDatabase, name='gallery'),
+    url('pdf', pdf, name='pdf'),
+    # path(
+    #     "pdf",
+    #     web_views.print_pdf,
+    #     name="print_pdf",
+    # ),
+
     # url('team', viewAbout, name='team'),
     # url('pdf', viewPdf, name='pdf'),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 urlpatterns += staticfiles_urlpatterns()
+
+
+

@@ -37,7 +37,7 @@
 	 user-select: none;
 }
  .uploader label:hover {
-	 border-color: #37dea6; /* Marked */
+	 border-color: #4298f5; /* Marked */
 }
  .uploader label.hover {
 	 border: 3px solid #454cad;
@@ -139,8 +139,8 @@
 	 color: #fff;
 	 transition: all 0.2s ease-in-out;
 	 box-sizing: border-box;
-	 background: #37dea6;
-	 border-color: #37dea6;
+	 background: #4298f5;
+	 border-color: #4298f5;
 	 cursor: pointer;
 }
  
