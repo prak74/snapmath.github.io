@@ -18,12 +18,13 @@ from django.template.loader import get_template, render_to_string
 import cv2
 import PIL
 import numpy as np 
+from PIL import Image
 import matplotlib.pyplot as plt 
 
-import reportlab
+# import reportlab
 import pickle as pkl
 from PIL import Image
-from tqdm import tqdm
+# from tqdm import tqdm
 import torch
 import torch.nn as nn
 import torchvision.models as models
@@ -32,7 +33,7 @@ import torchvision.transforms as transforms
 from torch.autograd import Variable
 from itsp.settings import MEDIA_ROOT
 
-import json
+# import json
 from models import model
 from models.data import Im2LatexDataset
 from models.build_vocab import Vocab, load_vocab
@@ -115,6 +116,8 @@ def predict(request):
 
     img = Image.open(testimage)
     img = img.convert(mode='RGB')
+
+    img = preImage(img)
 
     trans = transforms.ToTensor()
     img = trans(img)

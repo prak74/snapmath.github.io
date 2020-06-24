@@ -1865,7 +1865,7 @@
 	}
 
 	.inner {
-		max-width: 75em;
+		max-width: 74em;
 		margin: 0 auto;
 	}
 
@@ -3020,7 +3020,7 @@
 /* Banner */
 
 	#banner {
-		padding: 8em 0 9em 0;
+		padding: 7em 0 6em 0;
 		background-color: #fff
 		background-size: cover;
 		background-position: bottom;
@@ -3044,7 +3044,7 @@
 			border-top: 2px solid rgba(255, 255, 255, 0.2);
 			position: relative;
 			z-index: 10005;
-			padding-top: 8em;
+			padding-top: 5em;
 		}
 
 		#banner h1 {
