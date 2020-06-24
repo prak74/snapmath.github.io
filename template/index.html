@@ -3,16 +3,13 @@
 {% block content%}
 
 
-<!-- {% load static %} -->
 <br><br>
 <h2>Upload Image for generating LaTeX equation</h2>
 <br>
-<!-- <p class="lead">Upload Image File Here</p> -->
 
 <form method="post" enctype="multipart/form-data" action="predict" id="file-upload-form" class="uploader">
   
 {% csrf_token %}
- <!-- <div class="col-md-4 col-sm-4"><label for="fname">Upload Image File Here:</label> </div>  -->
 
 <input id="fname" type="file" name="filePath" accept="image/*" />
 
@@ -33,7 +30,6 @@
   </label>
 
 
- <!-- <input name="filePath" type="file"> -->
  <br>
  <br>
  <br>

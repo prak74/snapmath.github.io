@@ -2,3 +2,4 @@ models/data/
 models/vocab.pkl
 models/best_ckpt.pkl
 models/best_ckpt.pt
+media/*.png

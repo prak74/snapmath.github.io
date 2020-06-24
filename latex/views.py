@@ -1,7 +1,6 @@
 from os.path import join
 import os, datetime, random
 
-# import mimetype
 from functools import partial
 from django.views import View
 from django.shortcuts import render #
@@ -14,8 +13,6 @@ from django_tex.shortcuts import render_to_pdf
 
 from django.shortcuts import HttpResponse
 from django.template.loader import get_template, render_to_string
-
-from fpdf import FPDF, HTMLMixin
 
 
 import cv2
@@ -52,8 +49,8 @@ from argparse import Namespace
 
 
 
-# class Im2LatexModel(View):
-    # def __init__ ():
+# Loading Model
+
 args = Namespace(
     model_path = "models/data/best_ckpt.pt",
 
@@ -74,28 +71,16 @@ args = Namespace(
     lr = 3e-4,
     min_lr = 3e-5,
     batch_size=8,
-    # sample_method = "teacher_forcing", # Other opts: 'exp', 'inv_sigmoid'
-    # decay_k = 1. ,
-    
-    # clip = 2.0,
-    # save_dir = "./ckpts",
-    # print_freq = 100,
-    # seed = 2020,
-    # from_check_point = False, 
     use_cuda = False,
 )
 
 print("Loading vocab...")
-# with open('models/data/vocab.pkl', 'rb') as f:
-# 	vocab = pkl.load(f)
 vocab = load_vocab(args.data_path)
 print("Vocab loaded!")
-
 
 checkpoint = torch.load(join(args.model_path), map_location={'cuda:0': 'cpu'})
 model_args = checkpoint['args']
 print(model_args)
-# print(checkpoint['model_state_dict'])
 
 print("Loading model...")
 model = Im2LatexModel(
@@ -114,6 +99,8 @@ latex_producer = LatexProducer(
 
 
 
+
+# Predict LaTeX
 
 def predict(request):
     # doc = request.FILES #returns a dict-like object
@@ -151,28 +138,17 @@ def predict(request):
     return render(request,'index.html',context)
 
 
+
+
+# Shows compiled PDF
+
 def pdf(request):
     output = open('pdf/prediction.pdf', 'rb').read()
     return HttpResponse(output, content_type='application/pdf')
 
 
-# class HtmlPdf(FPDF, HTMLMixin):
-#     pass
 
-
-# def print_pdf(request):    
-#     pdf = HtmlPdf()
-#     pdf.add_page()
-#     pdf.write_html(render_to_string('pdf/example.html'))
-#     # pdf = open("pdf/prediction.pdf")
-
-#     response = HttpResponse(pdf.output(dest='S').encode('latin-1'))
-#     response['Content-Type'] = 'application/pdf'
-
-#     return response
-
-
-
+# Gallery
 
 def viewDatabase(request):
     listOfImages=os.listdir('./media/')
@@ -181,29 +157,12 @@ def viewDatabase(request):
     return render(request,'viewDB.html', context) 
 
 
-# def pdf(request):
-#     template_name = 'test.tex'
-#     context = {'foo': 'Bar'}
-#     return render_to_pdf(request, template_name, context, filename='test.pdf')
 
-
-# def pdf(request):
-#     output = open("pdf/prediction.pdf", 'r')
-#     return render(output, mimetype='application/pdf')
-
-
+# Homepage
 
 def index(request):
 	context = {'a':1}
 	return render(request, 'index.html', context)
-
-
-
-
-def viewAbout(request):
-    context = {}
-    return render(request, 'about.html', context)
-
 
 
 
