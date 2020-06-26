@@ -20,6 +20,8 @@
   /* Float four columns side by side */
   .column {
     float: left;
+    /*margin-right: auto;*/
+    /*margin-left: auto; */
     width: 20%;
     padding: 0 10px;
   }
@@ -43,11 +45,12 @@
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     max-width: 210px;
     margin: auto;
+    width: 200px;
     text-align: center;
     border-radius: 12px;
     column-gap: 10px;
     background-color: #f2f2f2;
-
+	margin-bottom: 40px;
   }
 
   
@@ -58,17 +61,17 @@
 
   .card img {
       border-radius: 50%;
-      height: 120px;
-      width: 120px;
+      height: 100px;
+      width: 100px;
   }
 
   button {
-    /*border: none;*/
-    /*outline: 0;*/
-    /*display: inline-block;*/
-    /*padding: 8px;*/
-    /*color: white;*/
-    /*background-color: #f9f9f9;*/
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 8px;
+    color: white;
+    background-color: #f9f9f9;
     text-align: center;
     cursor: pointer;
     width: 100%;
@@ -1994,6 +1997,7 @@
 		-ms-flex-wrap: wrap;
 		flex-wrap: wrap;
 		width: 100%;
+
 	}
 
 		.flex.flex-2 {
