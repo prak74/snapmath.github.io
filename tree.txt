@@ -21,23 +21,13 @@
 │   │       └── __init__.cpython-38.pyc
 │   ├── __pycache__
 │   │   ├── admin.cpython-38.pyc
-│   │   ├── build_vocab.cpython-38.pyc
 │   │   ├── __init__.cpython-38.pyc
-│   │   ├── models.cpython-38.pyc
 │   │   └── views.cpython-38.pyc
+│   ├── result.py
 │   ├── tests.py
 │   └── views.py
 ├── manage.py
 ├── media
-│   ├── img0008_8vl5hQU.png
-│   ├── img0008_IWytSoL.png
-│   ├── img0008_kOrGHvK.png
-│   ├── img0008.png
-│   ├── img0008_pVx7x4T.png
-│   ├── img0008_rxzRObS.png
-│   ├── img4-2.png
-│   ├── img7-2.png
-│   └── test.png
 ├── models
 │   ├── build_vocab.py
 │   ├── data
@@ -47,6 +37,24 @@
 │   ├── data.py
 │   ├── evaluate.py
 │   ├── evaluation.ipynb
+│   ├── inputImage.py
+│   ├── media
+│   │   ├── 1000a29807.png
+│   │   ├── 10024a5ccf.png
+│   │   ├── 1004e6e848.png
+│   │   ├── 10074189f9.png
+│   │   ├── 100b5d8c64.png
+│   │   ├── eq1.png
+│   │   ├── eq2.png
+│   │   ├── eq3.png
+│   │   ├── eq4.png
+│   │   ├── eq5.png
+│   │   ├── eq6.png
+│   │   ├── eq7.png
+│   │   ├── test0.png
+│   │   ├── test1.png
+│   │   ├── test2.png
+│   │   └── test3.png
 │   ├── model
 │   │   ├── beam_search.py
 │   │   ├── decoding.py
@@ -55,59 +63,104 @@
 │   │   ├── __pycache__
 │   │   │   ├── beam_search.cpython-38.pyc
 │   │   │   ├── decoding.cpython-38.pyc
-│   │   │   ├── __init__.cpython-38.pyc
 │   │   │   ├── model.cpython-38.pyc
 │   │   │   ├── position_embedding.cpython-38.pyc
-│   │   │   ├── score.cpython-38.pyc
-│   │   │   └── training.cpython-38.pyc
+│   │   │   └── score.cpython-38.pyc
 │   │   ├── score.py
 │   │   └── training.py
 │   ├── __pycache__
-│   │   ├── beam_search.cpython-38.pyc
 │   │   ├── build_vocab.cpython-38.pyc
 │   │   ├── data.cpython-38.pyc
-│   │   ├── decoding.cpython-38.pyc
-│   │   ├── __init__.cpython-38.pyc
-│   │   ├── model.cpython-38.pyc
-│   │   ├── position_embedding.cpython-38.pyc
-│   │   ├── score.cpython-38.pyc
-│   │   ├── training.cpython-38.pyc
+│   │   ├── inputImage.cpython-38.pyc
 │   │   └── utils.cpython-38.pyc
+│   ├── train_step.py
+│   ├── Untitled.ipynb
 │   ├── utils.py
 │   └── vocab.pkl
-├── __pycache__
-│   └── test.cpython-38.pyc
+├── pdf
+│   └── prediction.pdf
 ├── README.md
 ├── requirements.txt
 ├── static
 │   ├── css
 │   │   ├── animate.css
+│   │   ├── app.css
+│   │   ├── app.css.map
 │   │   ├── bootstrap.min.css
+│   │   ├── custom.css
+│   │   ├── custom.css.map
 │   │   ├── font-awesome.min.css
+│   │   ├── main.css
 │   │   ├── owl.carousel.css
 │   │   ├── owl.theme.default.min.css
+│   │   ├── plugins.css
+│   │   ├── plugins.css.map
+│   │   ├── plugins.min.css
+│   │   ├── style.css
+│   │   ├── switcher.css
+│   │   ├── switcher.css.map
 │   │   └── tooplate-style.css
+│   ├── fonts
+│   │   ├── FontAwesome.otf
+│   │   ├── fontawesome-webfont.eot
+│   │   ├── fontawesome-webfont.svg
+│   │   ├── fontawesome-webfont.ttf
+│   │   ├── fontawesome-webfont.woff
+│   │   └── fontawesome-webfont.woff2
 │   ├── img
+│   │   ├── about.jpg
+│   │   ├── advait.jpg
+│   │   ├── banner.jpg
+│   │   ├── einstein.jpeg
+│   │   ├── header.jpg
+│   │   ├── logo.png
+│   │   ├── newton.jpg
+│   │   ├── pic01.jpg
+│   │   ├── pic02.jpg
 │   │   ├── prakhar.jpg
 │   │   ├── sahasra.jpg
 │   │   ├── saketika.jpg
-│   │   └── sakshi.jpg
+│   │   ├── sakshi.jpg
+│   │   └── turing.jpg
 │   └── js
+│       ├── app.js
 │       ├── bootstrap.min.js
 │       ├── custom.js
 │       ├── jquery.js
+│       ├── jquery.min.js
 │       ├── jquery.stellar.min.js
 │       ├── jquery.sticky.js
+│       ├── js-sources-note.txt
+│       ├── main.js
 │       ├── owl.carousel.min.js
+│       ├── plugins.min.js
+│       ├── skel.min.js
 │       ├── smoothscroll.js
+│       ├── src
+│       │   ├── app-source.js
+│       │   ├── plugins
+│       │   │   ├── bootstrap.min.js
+│       │   │   ├── jquery-3.3.1.min.js
+│       │   │   ├── jquery.mCustomScrollbar.concat.min.js
+│       │   │   ├── picturefill.min.js
+│       │   │   ├── popper.min.js
+│       │   │   ├── prism.js
+│       │   │   ├── scrollreveal.min.js
+│       │   │   ├── slick.min.js
+│       │   │   ├── svg-handler.js
+│       │   │   ├── switcher.js
+│       │   │   └── venobox.min.js
+│       │   └── plugins.js
+│       ├── upload.js
+│       ├── util.js
 │       └── wow.min.js
 ├── template
-│   ├── about.html
 │   ├── headerPage.html
 │   ├── index.html
 │   ├── result.html
+│   ├── test.tex
 │   └── viewDB.html
 ├── test.py
 └── tree.txt
 
-18 directories, 92 files
+22 directories, 141 files
